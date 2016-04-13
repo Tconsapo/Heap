@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) throws IOException{
         int value;
         Heap h = new Heap(16);
-        init(h);
+        //init(h);
         while (true){
             h.show();
             System.out.println("Доступны команды: add, move, change");
@@ -24,7 +24,7 @@ public class Main {
                     System.out.print("Введите значение: ");
                     value = Input.getInt();
                     if ((!h.insert(value))&&(value != -1)){
-                        System.out.println("Очередь заполнена!");
+                        System.out.println("Ошибка добавления!");
                     }
                     break;
                 case "move":

@@ -13,6 +13,14 @@ public class Heap {
         this.hArray = new Node[this.maxSize];
     }
     
+    public int getMaxSize(){
+        return this.maxSize;
+    }
+    
+    public Node[] getNodes(){
+        return this.hArray;
+    }
+    
     public void increaseSize(){
         Node[] oldArray = this.hArray;
         this.hArray = new Node[this.maxSize*2];
