@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) throws IOException{
         int value;
         Heap h = new Heap(16);
-        //init(h);
+        init(h);
         while (true){
             h.show();
             System.out.println("Доступны команды: add, move, change");

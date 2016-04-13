@@ -6,6 +6,7 @@
 package com.my.heap;
 
 import static com.my.heap.Main.init;
+import java.util.Arrays;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -46,8 +47,11 @@ public class HeapTest {
         System.out.println("insert");
         Heap h = new Heap(16);
         h.insert(1);
-        Node[] ex = {new Node(1)};
-        Assert.assertArrayEquals(ex, h.getNodes());
+        h.insert(2);
+        h.insert(5);
+        String ex = "2 1";
+        String is = h.remove().getKey() + " " + h.remove().getKey();
+        assertEquals(ex, is);
     }
 
     @Test
@@ -56,20 +60,16 @@ public class HeapTest {
         Heap h = new Heap(16);
         h.insert(2);
         h.insert(1);
-        h.remove();
-        Node[] ex = {new Node(1)};
-        Assert.assertArrayEquals(ex, h.getNodes());
+        assertEquals(1, h.remove().getKey());
     }
 
     @Test
     public void testChange() {
         System.out.println("change");
         Heap h = new Heap(16);
-        h.insert(2);
         h.insert(3);
-        h.change(1, 4);
-        Node[] ex = {new Node(3), new Node(4)};
-        Node[] is = {h.remove(), h.remove()};
-        Assert.assertArrayEquals(ex, is);
+        h.insert(5);
+        h.change(2, 4);
+        assertEquals(4, h.remove().getKey());
     }
 }
